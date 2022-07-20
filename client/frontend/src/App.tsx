@@ -1,23 +1,54 @@
-import { KanjiInformations } from './types/KanjiApiData';
+// @ts-nocheck
+// import { KanjiInformations } from './Types/KanjiApiData';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
 
 const App = () => {
 
-  const [data, setData] = useState<KanjiInformations[]>([])
+  const [dataKanji, setDataKanji] = useState({
+
+    kanji: "",
+    grade: 0,
+    stroke_count: 0,
+    meanings: [],
+    kun_readings: [],
+    on_readings: [],
+    name_readings: [],
+    jlpt: 0,
+    unicode: "",
+    heisig_en: ""
+  });
+
+  const getKanji = async (x) => {
+    await axios(`https://kanjiapi.dev/v1/kanji/${x}`).then((response) => {
+      setDataKanji(response.data);
+      console.log(dataKanji)
+    })
+  };
+
+  const [kanji, setKanji] = useState("");
+  const handleChange = (e) => {
+    setKanji(e.target.value)
+  }
+  const handleClick = () => {
+    getKanji(kanji)
+  }
+
 
   useEffect(() => {
-    axios.get<KanjiInformations[]>('https://kanjiapi.dev/v1/kanji/風')
-      .then((response) => {
-        console.log(response.data);
-        setData(response.data);
-        console.log("state", data);
+    getKanji();
+  }, [])
 
-      });
-  }, []);
   return (
     <div className="App">
+      <input
+        type="text"
+        placeholder="Search your kanji"
+        onChange={(e) => handleChange(e)}
+      />
+      <button onClick={handleClick}>click</button>
+      {dataKanji.kanji}
     </div>
   );
 }

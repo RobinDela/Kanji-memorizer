@@ -1,4 +1,4 @@
-export interface KanjiInformations {
+export type KanjiInformations = {
 
     kanji: string;
     grade: number;
