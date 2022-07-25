@@ -1,6 +1,20 @@
-// @ts-ignore
 
-const KanjiInformationsDisplay = ({ dataKanji }: props) => {
+type Props = {
+    dataKanji: {
+        kanji: string;
+        grade: number;
+        stroke_count: number;
+        meanings: string[];
+        kun_readings: string[];
+        on_readings: string[];
+        name_readings: string[];
+        jlpt: number;
+        unicode: string;
+        heisig_en: string;
+    }
+};
+
+const KanjiInformationsDisplay = ({ dataKanji }: Props) => {
 
     const meaning = dataKanji.meanings.join(', ')
     const kunYomi = dataKanji.kun_readings.join(', ')

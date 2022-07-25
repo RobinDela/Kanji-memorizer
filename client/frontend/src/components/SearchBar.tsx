@@ -34,8 +34,8 @@ const SearchBar = () => {
         heisig_en: ""
     });
 
-    const getKanji = async (x: string) => {
-        await axios(`https://kanjiapi.dev/v1/kanji/${x}`).then((response) => {
+    const getKanji = async (kanji: string) => {
+        await axios(`https://kanjiapi.dev/v1/kanji/${kanji}`).then((response) => {
             setDataKanji(response.data);
             console.log(dataKanji)
         })
