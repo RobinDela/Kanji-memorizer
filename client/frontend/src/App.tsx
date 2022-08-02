@@ -1,4 +1,6 @@
-import './App.css'
+import './styles/KanjiInformations.css'
+import './styles/Quizz.css'
+
 import KanjiQuizz from './components/KanjiQuizz';
 import SearchBar from "./components/SearchBar";
 

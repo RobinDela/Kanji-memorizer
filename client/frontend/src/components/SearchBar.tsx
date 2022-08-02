@@ -22,14 +22,14 @@ const SearchBar = () => {
 
     const [dataKanji, setDataKanji] = useState<KanjiInformations>({
 
-        kanji: "",
-        grade: 0,
-        stroke_count: 0,
-        meanings: [],
-        kun_readings: [],
-        on_readings: [],
+        kanji: "字",
+        grade: 1,
+        stroke_count: 6,
+        meanings: ["character", "letter", "word", "section of village"],
+        kun_readings: ['あざ', 'あざな', '-な'],
+        on_readings: ['ジ'],
         name_readings: [],
-        jlpt: 0,
+        jlpt: 3,
         unicode: "",
         heisig_en: ""
     });
