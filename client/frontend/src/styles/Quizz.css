@@ -1,0 +1,87 @@
+.quizz-main-div {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    width: 25vw;
+    min-height: 50vh;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.quizz-search-bar {
+    width: 15vw;
+    height: 5vh;
+    border-radius: 8px;
+    ;
+}
+
+.quizz-kanji {
+    height: 150px;
+    width: 150px;
+    border: thick double black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.quizz-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.quizz-title-score {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.score {
+    background-color: green;
+    padding: 15px;
+    border-radius: 50%;
+    color: cyan;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.button-validate {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.button-validate:hover,
+.button-validate:focus {
+    background-color: #07c;
+}
+
+.button-validate:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-validate:active {
+    background-color: #0064bd;
+    box-shadow: none;
+}

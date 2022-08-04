@@ -6,13 +6,14 @@ import axios from "axios";
 function KanjiQuizz() {
 
     const [allKanjiByGrade, setAllKanjiByGrade] = useState([])
-    const [randomKanjiByGrade, setSingleKanjiByGrade] = useState('')
+    const [randomKanjiByGrade, setSingleKanjiByGrade] = useState('出')
     const [randomKanjiInformations, setRandomKanjiInformations] = useState([])
     const [meaning, setMeaning] = useState("");
     const [error, setError] = useState([])
+    const [score, setScore] = useState(0)
 
     useEffect(() => {
-        axios(`https://kanjiapi.dev/v1/kanji/grade-3`).then((response) => {
+        axios(`https://kanjiapi.dev/v1/kanji/grade-1`).then((response) => {
             setAllKanjiByGrade(response.data);
         })
     }, []);
@@ -23,52 +24,60 @@ function KanjiQuizz() {
         setSingleKanjiByGrade(allKanjiByGrade[randomNumber])
         getrandomInformationKanji(randomKanjiByGrade)
         setMeaning('')
-        console.log('All kanji', allKanjiByGrade)
-        console.log('Random kanji', randomKanjiByGrade)
     };
 
     const getrandomInformationKanji = async (randomKanjiByGrade) => {
         await axios(`https://kanjiapi.dev/v1/kanji/${randomKanjiByGrade}`).then((response) => {
             setRandomKanjiInformations(response.data);
-            console.log(randomKanjiInformations)
         })
     };
+
     const handleChange = (e) => {
         setMeaning(e.target.value.toLowerCase())
-    }
+    };
+
     const handleClick = () => {
-        console.log("meaning", meaning)
         if (randomKanjiInformations.meanings.includes(meaning)) {
             setError('Well done')
+            setScore(score + 1)
         }
         else if (meaning === "") {
             setError("Please write something")
         }
-        else { setError('This is incorrect') }
+        else {
+            setError('This is incorrect')
+            setScore(score - 1)
+        }
         setMeaning('')
-        console.log("error", error);
-
-    }
-
+    };
 
     return (
-        <div>
-            <p> What is the meaning of this Kanji?</p>
-            <p>{error}</p>
-            <button className="button-generate" onClick={generateRandomKanji}>Generate a kanji</button>
-            <h1>{randomKanjiInformations.kanji}</h1>
-            <form>
-                <input
-                    className="search-bar"
-                    value={meaning}
-                    type="text"
-                    placeholder="What is the meaning of this kanji?"
-                    onChange={(e) => handleChange(e)}
-                />
-                <button className="button-validate-input" type="button" onClick={handleClick}>Click</button>
-            </form>
-            <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p>
-        </div>
+        <>
+            <div className="quizz-main-div">
+                <div className="quizz-title-score">
+                    <h2>Test your knowledges</h2>
+                    <div className="score" style={score >= 0 ? { backgroundColor: "green" } : { backgroundColor: "red" }}>{score}</div>
+                </div>
+                <p style={error === 'Well done' ? { backgroundColor: "green" } : { backgroundColor: "red" }}>{error}</p>
+                <div className="quizz-kanji">
+                    <h1>{randomKanjiInformations.kanji}</h1>
+                </div>
+                <div className="quizz-form">
+                    <form>
+                        <input
+                            className="quizz-search-bar"
+                            value={meaning}
+                            type="text"
+                            placeholder="What is the meaning of this kanji?"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        <button className="button-validate" type="button" onClick={handleClick}>Click</button>
+                    </form>
+                </div>
+                <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p>
+                <button className="button-validate" onClick={generateRandomKanji}>Generate a kanji</button>
+            </div>
+        </>
     )
 };
 

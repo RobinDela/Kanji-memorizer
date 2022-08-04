@@ -49,7 +49,7 @@ const SearchBar = () => {
     }
 
     return (
-        <div className="App">
+        <div>
             <form onSubmit={handleClick}>
                 <input
                     className="search-bar"
@@ -58,7 +58,7 @@ const SearchBar = () => {
                     onChange={(e) => handleChange(e)}
                 />
             </form>
-            <button type="button" onClick={handleClick}>click</button>
+            <button className="button-validate" type="button" onClick={handleClick}>click</button>
             <div>
                 <KanjiInformationsDisplay dataKanji={dataKanji} />
             </div>
