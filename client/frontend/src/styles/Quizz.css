@@ -9,13 +9,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    position: relative;
 }
 
 .quizz-search-bar {
     width: 15vw;
     height: 5vh;
     border-radius: 8px;
-    ;
+
 }
 
 .quizz-kanji {
@@ -24,6 +25,8 @@
     border: thick double black;
     text-align: center;
     vertical-align: middle;
+    border-radius: 12px;
+
 }
 
 .quizz-form {
@@ -31,16 +34,15 @@
     justify-content: space-around;
 }
 
-.quizz-title-score {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-}
+
 
 .score {
+    position: absolute;
+    top: 0px;
+    right: 0px;
     background-color: green;
+    border-radius: 0 12px 0 0;
     padding: 15px;
-    border-radius: 50%;
     color: cyan;
     font-weight: 400;
     font-size: 2rem;

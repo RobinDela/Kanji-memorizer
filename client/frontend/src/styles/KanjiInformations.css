@@ -26,6 +26,16 @@
   margin: 10px;
 }
 
+.kanji-information-title {
+  height: 150px;
+  width: 150px;
+  border: thick double black;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
 h1 {
   font-size: 6rem;
 }
@@ -45,5 +55,8 @@ h1 {
 }
 
 .search-bar {
-  font-size: 3rem;
+  font-size: 1rem;
+  width: 15vw;
+  height: 5vh;
+  border-radius: 8px;
 }

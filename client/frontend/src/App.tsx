@@ -5,18 +5,32 @@ import './styles/App.css'
 
 import KanjiQuizz from './components/KanjiQuizz';
 import SearchBar from "./components/SearchBar";
-import Header from './components/Header';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 const App = () => {
 
   return (
-    <div className="App">
-      <Header />
-      <div className="search-quizz">
-        <SearchBar />
-        <KanjiQuizz />
+    <Router>
+      <div className="App">
+        <header className='header'>
+          <Link to="/">Search</Link>
+          <Link to="/quizz">Quizz</Link>
+        </header>
+        <div className="search-quizz">
+          <Routes>
+            <Route path="/" element={<SearchBar />} />
+            <Route path="/quizz" element={<KanjiQuizz />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
+
   );
 
 };

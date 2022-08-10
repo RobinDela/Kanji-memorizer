@@ -26,7 +26,9 @@ const KanjiInformationsDisplay = ({ dataKanji }: Props) => {
         <>
             <div className="kanji-card">
                 <div className="card-header">
-                    <h1>{dataKanji.kanji}</h1>
+                    <div className="kanji-information-title">
+                        <h1>{dataKanji.kanji}</h1>
+                    </div>
                     <div>
                         <div>Kun: {kunYomi}</div>
                         <div>On: {onYomi}</div>

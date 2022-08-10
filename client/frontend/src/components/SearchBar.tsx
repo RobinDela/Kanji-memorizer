@@ -44,13 +44,14 @@ const SearchBar = () => {
     const handleChange = (e: any) => {
         setKanji(e.target.value)
     }
-    const handleClick = () => {
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
         getKanji(kanji)
     }
 
     return (
         <div>
-            <form onSubmit={handleClick}>
+            <form onSubmit={handleSubmit}>
                 <input
                     className="search-bar"
                     type="text"
@@ -58,7 +59,7 @@ const SearchBar = () => {
                     onChange={(e) => handleChange(e)}
                 />
             </form>
-            <button className="button-validate" type="button" onClick={handleClick}>click</button>
+            <button className="button-validate" type="submit" onClick={handleSubmit}>click</button>
             <div>
                 <KanjiInformationsDisplay dataKanji={dataKanji} />
             </div>

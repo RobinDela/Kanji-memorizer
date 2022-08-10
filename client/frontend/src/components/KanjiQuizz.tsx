@@ -36,7 +36,8 @@ function KanjiQuizz() {
         setMeaning(e.target.value.toLowerCase())
     };
 
-    const handleClick = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if (randomKanjiInformations.meanings.includes(meaning)) {
             setError('Well done')
             setScore(score + 1)
@@ -63,19 +64,19 @@ function KanjiQuizz() {
                     <h1>{randomKanjiInformations.kanji}</h1>
                 </div>
                 <div className="quizz-form">
-                    <form>
-                        <input
-                            className="quizz-search-bar"
-                            value={meaning}
-                            type="text"
-                            placeholder="What is the meaning of this kanji?"
-                            onChange={(e) => handleChange(e)}
-                        />
-                        <button className="button-validate" type="button" onClick={handleClick}>Click</button>
-                    </form>
                 </div>
-                <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p>
                 <button className="button-validate" onClick={generateRandomKanji}>Generate a kanji</button>
+                <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        className="quizz-search-bar"
+                        value={meaning}
+                        type="text"
+                        placeholder="What is the meaning of this kanji?"
+                        onChange={(e) => handleChange(e)}
+                    />
+                    <button className="button-validate" type="submit" onSubmit={handleSubmit}>Click</button>
+                </form>
             </div>
         </>
     )
