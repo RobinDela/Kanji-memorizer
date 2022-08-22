@@ -16,20 +16,26 @@ import {
 const App = () => {
 
   return (
-    <Router>
-      <div className="App">
-        <header className='header'>
-          <Link to="/">Search</Link>
-          <Link to="/quizz">Quizz</Link>
-        </header>
-        <div className="search-quizz">
-          <Routes>
-            <Route path="/" element={<SearchBar />} />
-            <Route path="/quizz" element={<KanjiQuizz />} />
-          </Routes>
+    <>
+      <Router>
+        <div className="App">
+          <header className='header'>
+            <div className="link-header">
+              <Link to="/">Search</Link>
+            </div>
+            <div className="link-header">
+              <Link to="/quizz">Quizz</Link>
+            </div>
+          </header>
+          <div className="search-quizz">
+            <Routes>
+              <Route path="/" element={<SearchBar />} />
+              <Route path="/quizz" element={<KanjiQuizz />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </>
 
   );
 

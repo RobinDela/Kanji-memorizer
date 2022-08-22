@@ -2,4 +2,8 @@
     height: 15vh;
     width: 100vw;
     background-color: #1f1f1f;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-decoration: none;
 }

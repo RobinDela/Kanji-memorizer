@@ -13,7 +13,7 @@ function KanjiQuizz() {
     const [score, setScore] = useState(0)
 
     useEffect(() => {
-        axios(`https://kanjiapi.dev/v1/kanji/grade-1`).then((response) => {
+        axios(`https://kanjiapi.dev/v1/kanji/grade-3`).then((response) => {
             setAllKanjiByGrade(response.data);
         })
     }, []);
@@ -66,7 +66,7 @@ function KanjiQuizz() {
                 <div className="quizz-form">
                 </div>
                 <button className="button-validate" onClick={generateRandomKanji}>Generate a kanji</button>
-                <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p>
+                {/* <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p> */}
                 <form onSubmit={handleSubmit}>
                     <input
                         className="quizz-search-bar"
