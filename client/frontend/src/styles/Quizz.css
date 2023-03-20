@@ -1,9 +1,10 @@
 .quizz-main-div {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 12px;
-    width: 25vw;
+    width: 90vw;
+    max-width: 700px;
     min-height: 50vh;
-    margin: 25px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,27 +15,28 @@
 }
 
 .quizz-search-bar {
-    width: 15vw;
+    width: 100%;
+    max-width: 400px;
     height: 5vh;
     border-radius: 8px;
-
 }
 
 .quizz-kanji {
     height: 150px;
     width: 150px;
-    border: thick double black;
+    border: solid 5px black;
     text-align: center;
     vertical-align: middle;
     border-radius: 12px;
-
 }
 
 .quizz-form {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-
 
 
 .score {

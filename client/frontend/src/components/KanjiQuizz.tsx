@@ -22,11 +22,11 @@ function KanjiQuizz() {
     const generateRandomKanji = () => {
         let randomNumber = Math.floor(Math.random() * allKanjiByGrade.length);
         setSingleKanjiByGrade(allKanjiByGrade[randomNumber])
-        getrandomInformationKanji(randomKanjiByGrade)
+        getRandomInformationKanji(randomKanjiByGrade)
         setMeaning('')
     };
 
-    const getrandomInformationKanji = async (randomKanjiByGrade) => {
+    const getRandomInformationKanji = async (randomKanjiByGrade) => {
         await axios(`https://kanjiapi.dev/v1/kanji/${randomKanjiByGrade}`).then((response) => {
             setRandomKanjiInformations(response.data);
         })
@@ -66,17 +66,17 @@ function KanjiQuizz() {
                 <div className="quizz-form">
                 </div>
                 <button className="button-validate" onClick={generateRandomKanji}>Generate a kanji</button>
-                {/* <p>{randomKanjiInformations.meanings ? randomKanjiInformations.meanings.map((x) => x) : "non"}</p> */}
                 <form onSubmit={handleSubmit}>
                     <input
                         className="quizz-search-bar"
                         value={meaning}
                         type="text"
-                        placeholder="What is the meaning of this kanji?"
+                        placeholder="What is this kanji?"
                         onChange={(e) => handleChange(e)}
                     />
-                    <button className="button-validate" type="submit" onSubmit={handleSubmit}>Click</button>
                 </form>
+                <button className="button-validate" type="submit" onSubmit={handleSubmit}>Answer</button>
+
             </div>
         </>
     )

@@ -1,9 +1,32 @@
 .header {
-    height: 15vh;
-    width: 100vw;
-    background-color: #1f1f1f;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-color: #09090a76;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.307);
+    padding: 16px;
+}
+
+
+.link-header {
+    margin-right: 20px;
+
+}
+
+.link-header a {
+    display: inline-block;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #2196f3;
+    color: #fff;
     text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.link-header a:hover {
+    background-color: #0c7cd5;
 }

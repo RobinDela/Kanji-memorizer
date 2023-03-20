@@ -2,6 +2,7 @@ import './styles/KanjiInformations.css'
 import './styles/Quizz.css'
 import './styles/Header.css'
 import './styles/App.css'
+import './styles/SearchBar.css'
 
 import KanjiQuizz from './components/KanjiQuizz';
 import SearchBar from "./components/SearchBar";
@@ -21,7 +22,7 @@ const App = () => {
         <div className="App">
           <header className='header'>
             <div className="link-header">
-              <Link to="/">Search</Link>
+              <Link to="/">Study</Link>
             </div>
             <div className="link-header">
               <Link to="/quizz">Quizz</Link>

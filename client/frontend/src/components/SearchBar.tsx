@@ -3,6 +3,7 @@ import { useState } from 'react';
 import KanjiInformationsDisplay from "./KanjiInformationsDisplay";
 
 
+
 type KanjiInformations = {
 
     kanji: string;
@@ -50,7 +51,7 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
+        <div className="search-form">
             <form onSubmit={handleSubmit}>
                 <input
                     className="search-bar"
@@ -59,7 +60,7 @@ const SearchBar = () => {
                     onChange={(e) => handleChange(e)}
                 />
             </form>
-            <button className="button-validate" type="submit" onClick={handleSubmit}>click</button>
+            <button className="button-validate" type="submit" onClick={handleSubmit}>Search</button>
             <div>
                 <KanjiInformationsDisplay dataKanji={dataKanji} />
             </div>
