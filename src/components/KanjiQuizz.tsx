@@ -41,6 +41,7 @@ function KanjiQuizz() {
         if (randomKanjiInformations.meanings.includes(meaning)) {
             setError('Well done')
             setScore(score + 1)
+            generateRandomKanji()
         }
         else if (meaning === "") {
             setError("Please write something")
@@ -75,7 +76,7 @@ function KanjiQuizz() {
                         onChange={(e) => handleChange(e)}
                     />
                 </form>
-                <button className="button-validate" type="submit" onSubmit={handleSubmit}>Answer</button>
+                <button className="button-validate" type="submit" onClick={handleSubmit}>Answer</button>
 
             </div>
         </>
